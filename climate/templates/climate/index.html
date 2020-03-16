@@ -1,10 +1,19 @@
-{% extends 'base.html'%}
+{% extends 'base.html'
 {% block content %}
+{% load static %}
 <h2>Weclome</h2>
+<img src="{% static '/climate/iceberg.jpg' %}" alt= "iceberg" style="float:left; padding-right: 2em;" />
 <p>Climate resources is a web site that attempts to gather links to articles, videos, podcasts,
     scientific papers, studies and reports that focus on climate change. </p>
     <p>The goal is to provide one place where you can go to educate yourself, to see what 
         the current science and studies show.
 </p>
+<h2>Topics</h2>
+
+<ul>
+  {% for t in topics %}
+  <li>{{ t.topicname }}</li>
+  {% endfor %}
+</ul>
 
 {% endblock %}

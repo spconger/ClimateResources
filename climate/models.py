@@ -37,17 +37,17 @@ class Topic(models.Model):
     topicdescription=models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return sel.topicname
+        return self.topicname
 
     class Meta:
         db_table='topic'
     
 # domain models
 class Location(models.Model):
-    address1=models.CharField(max_length=255)
+    address1=models.CharField(max_length=255, null=True, blank=True)
     address2=models.CharField(max_length=255, null=True, blank=True)
-    city=models.CharField(max_length=255)
-    country=models.CharField(max_length=255)
+    city=models.CharField(max_length=255, null=True, blank=True)
+    country=models.CharField(max_length=255, null=True, blank=True)
     postalcode=models.CharField(max_length=50, null=True, blank=True)
 
     def __str__(self):
@@ -58,7 +58,7 @@ class ContentPublisher(models.Model):
     publishername=models.CharField(max_length=255)
     publishersemail=models.CharField(max_length=255, null=True, blank=True)
     publisherurl=models.URLField(null=True, blank=True)
-    publisheraddress=models.ManyToManyField(Location)
+    #publisheraddress=models.ManyToManyField(Location)
     publisherdescription=models.TextField(null=True, blank=True)
     publisherdateadded=models.DateField(auto_now=True)
 
